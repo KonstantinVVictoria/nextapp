@@ -2,7 +2,7 @@ import data from "./data";
 let { people } = data;
 // Initializing the cors middleware
 const cors = Cors({
-  methods: ["GET", "HEAD"],
+  methods: ["GET", "POST"],
 });
 
 // Helper method to wait for a middleware to execute before continuing
