@@ -5,6 +5,7 @@ import Peer from "peerjs";
 let peer = new Peer();
 let uniqueID = peer.id;
 //Math.floor(Math.random(Date.UTC()) * Math.floor(Math.pow(10, 12)));
+
 let setCallingStatusG = null;
 let setCalleeG = null;
 const initSignal = () => {
@@ -66,7 +67,7 @@ const connect = async (e, id, setIsConnected) => {
   const container = e.target.parentElement;
   const input = container.children[1];
   if (input.value) {
-    let isTaken = await poster("https://nextapp-orpin.vercel.app/signin", {
+    let isTaken = await poster("https://nextapp-orpin.vercel.app/api/signin", {
       id: id,
       name: input.value,
     });
