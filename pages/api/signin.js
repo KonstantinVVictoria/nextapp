@@ -19,9 +19,9 @@ function runMiddleware(req, res, fn) {
   });
 }
 
-(() => {
-    await runMiddleware(req, res, cors);
-})()
+(async () => {
+  await runMiddleware(req, res, cors);
+})();
 const isIDTaken = (person) => {
   console.log(people[`${person.id}`]);
   if (people[`${person.id}`]) return true;
