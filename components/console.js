@@ -5,11 +5,7 @@ import Peer from "peerjs";
 let uniqueID = Math.floor(
   Math.random(Date.UTC()) * Math.floor(Math.pow(10, 12))
 );
-let peer = new Peer(uniqueID, {
-  secure: true,
-  host: "peerjsserver.vercel.app",
-  port: 443,
-});
+let peer = new Peer();
 
 let setCallingStatusG = null;
 let setCalleeG = null;
