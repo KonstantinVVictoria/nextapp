@@ -6,7 +6,7 @@ let uniqueID = Math.floor(
   Math.random(Date.UTC()) * Math.floor(Math.pow(10, 12))
 );
 let peer = new Peer(uniqueID, {
-  host: "https://peerjsserver.vercel.app/",
+  host: "https://peerjsserver.vercel.app",
   port: 9000,
   path: "/myapp",
 });
