@@ -35,7 +35,7 @@ const recieve = () => {
           audioPlayer.play();
           setCallingStatusG("answered");
           let { name } = await await poster(
-            "https://nextapp-18fpxg1u2.vercel.app/api/queryUser",
+            "https://nextapp-orpin.vercel.app/api/queryUser",
             {
               id: call.peer,
             }
@@ -66,7 +66,7 @@ const connect = async (e, id, setIsConnected) => {
   const container = e.target.parentElement;
   const input = container.children[1];
   if (input.value) {
-    let isTaken = await poster("https://nextapp-18fpxg1u2.vercel.app/signin", {
+    let isTaken = await poster("https://nextapp-orpin.vercel.app/signin", {
       id: id,
       name: input.value,
     });
@@ -87,7 +87,7 @@ const connect = async (e, id, setIsConnected) => {
 const queryUser = async (userid) => {
   if (userid) {
     let username = await poster(
-      "https://nextapp-18fpxg1u2.vercel.app/api/queryUser",
+      "https://nextapp-orpin.vercel.app/api/queryUser",
       {
         id: userid,
       }
