@@ -7,7 +7,7 @@ let peer = new Peer({
   host: "peernexjs.herokuapp.com",
   port: 443,
 });
-uniqueID = peer.id;
+let uniqueID = peer.id;
 let setCallingStatusG = null;
 let setCalleeG = null;
 const initSignal = () => {
