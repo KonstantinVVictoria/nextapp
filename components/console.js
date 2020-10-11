@@ -5,12 +5,12 @@ import Peer from "peerjs";
 let uniqueID = Math.floor(
   Math.random(Date.UTC()) * Math.floor(Math.pow(10, 12))
 );
-let peer = new Peer(uniqueID, {
+let peer = new Peer({
   secure: true,
   host: "peernexjs.herokuapp.com",
   port: 9000,
 });
-
+let uniqueID = peer.id;
 let setCallingStatusG = null;
 let setCalleeG = null;
 const initSignal = () => {
