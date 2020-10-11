@@ -1,5 +1,6 @@
 import data from "./data";
 let { people } = data;
+import Cors from "cors";
 // Initializing the cors middleware
 const cors = Cors({
   methods: ["GET", "POST"],

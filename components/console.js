@@ -113,6 +113,10 @@ const calling = (number, setCallingStatus, setCallee, name) => {
       var call = peer.call(number, stream);
 
       call.on("stream", function (remoteStream) {
+        let audioPlayer = document.getElementById("audio-player");
+        audioPlayer.srcObject = remoteStream;
+        audioPlayer.load();
+        audioPlayer.play();
         setCallingStatus("answered");
       });
     },
