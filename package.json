@@ -1,0 +1,18 @@
+{
+  "name": "nextapp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "next": "9.5.5",
+    "peerjs": "^1.3.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "sass": "^1.27.0"
+  }
+}

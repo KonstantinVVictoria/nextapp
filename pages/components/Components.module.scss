@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(228, 146, 22);
+  height: 70vh;
+  width: 60vw;
+  border-radius: 50px;
+  opacity: 1;
+  transition: opacity 300ms ease;
+}
+.input {
+  box-sizing: border-box;
+  background-color: white;
+  height: 100%;
+  width: 90%;
+  border-radius: 50px 0px 0px 50px;
+  border: none;
+  padding: 0% 1% 0%;
+  font-family: "Times New Roman";
+  font-size: 2.5em;
+  text-align: center;
+  font-weight: 700;
+  color: rgb(245, 8, 55);
+  outline: none;
+}
+
+.input-button {
+  background-color: rgb(113, 91, 191);
+  height: 100%;
+  width: 10%;
+  border-radius: 0px 50px 50px 0px;
+  border: none;
+}
+.input-button:active {
+  background-color: rgb(135, 109, 228);
+}
+@media only screen and (max-width: 500px) {
+  .container {
+    height: 100vh;
+    width: 100vw;
+  }
+}
+.particle {
+  position: absolute;
+  border-radius: 50%;
+}
+
+@for $i from 1 through 30 {
+  @keyframes particle-animation-#{$i} {
+    100% {
+      transform: translate3d(
+        (random(90) * 1vw),
+        (random(90) * 1vh),
+        (random(100) * 1px)
+      );
+    }
+  }
+
+  .particle:nth-child(#{$i}) {
+    animation: particle-animation-#{$i} 60s infinite;
+    $size: random(5) + 5 + px;
+    opacity: random(100) / 100;
+    height: $size;
+    width: $size;
+    animation-delay: -$i * 0.2s;
+    transform: translate3d(
+      (random(90) * 1vw),
+      (random(90) * 1vh),
+      (random(100) * 1px)
+    );
+    background: hsl(random(360), 70%, 50%);
+  }
+}
