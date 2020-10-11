@@ -2,22 +2,16 @@ import React, { useState } from "react";
 import styles from "./Components.module.scss";
 import Input from "./input";
 import Peer from "peerjs";
-const uniqueID = Math.floor(
-  Math.random(Date.UTC()) * Math.floor(Math.pow(10, 12))
-);
-
-let peer = new Peer(uniqueID, {
-  host: "localhost",
-  port: 9000,
-  path: "/myapp",
-});
-
+let peer = new Peer();
+let uniqueID = peer.id;
+//Math.floor(Math.random(Date.UTC()) * Math.floor(Math.pow(10, 12)));
 let setCallingStatusG = null;
 let setCalleeG = null;
 const initSignal = () => {
   console.log("Awaiting Hash", window.location.hash);
   peer.on("open", function (id) {
     console.log("hi", id);
+    uniqueID = peer.id;
   });
   peer.on("error", function (err) {
     console.log(err);
@@ -41,7 +35,7 @@ const recieve = () => {
           audioPlayer.play();
           setCallingStatusG("answered");
           let { name } = await await poster(
-            "http://localhost:3000/api/queryUser",
+            "https://nextapp-iqfadogvx.vercel.app/api/queryUser",
             {
               id: call.peer,
             }
@@ -72,7 +66,7 @@ const connect = async (e, id, setIsConnected) => {
   const container = e.target.parentElement;
   const input = container.children[1];
   if (input.value) {
-    let isTaken = await poster("http://localhost:3000/api/signin", {
+    let isTaken = await poster("https://nextapp-iqfadogvx.vercel.app/signin", {
       id: id,
       name: input.value,
     });
@@ -92,9 +86,12 @@ const connect = async (e, id, setIsConnected) => {
 };
 const queryUser = async (userid) => {
   if (userid) {
-    let username = await poster("http://localhost:3000/api/queryUser", {
-      id: userid,
-    });
+    let username = await poster(
+      "https://nextapp-iqfadogvx.vercel.app/api/queryUser",
+      {
+        id: userid,
+      }
+    );
     return username;
   }
 };
