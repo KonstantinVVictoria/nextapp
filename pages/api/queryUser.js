@@ -6,6 +6,7 @@ const cors = Cors({
 });
 
 function runMiddleware(req, res, fn) {
+  console.log(req);
   return new Promise((resolve, reject) => {
     fn(req, res, (result) => {
       if (result instanceof Error) {
@@ -16,9 +17,7 @@ function runMiddleware(req, res, fn) {
     });
   });
 }
-(async () => {
-  await runMiddleware(req, res, cors);
-})();
+
 const isIDTaken = (id) => {
   if (people[`${id}`]) return people[`${id}`].name;
   else {
@@ -27,6 +26,7 @@ const isIDTaken = (id) => {
 };
 
 export default async function handler(req, res) {
+  await runMiddleware(req, res, cors);
   let name = null;
   console.log(req.body, 1);
   if (req.method === "POST") {

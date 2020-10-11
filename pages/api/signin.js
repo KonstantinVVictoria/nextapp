@@ -19,9 +19,6 @@ function runMiddleware(req, res, fn) {
   });
 }
 
-(async () => {
-  await runMiddleware(req, res, cors);
-})();
 const isIDTaken = (person) => {
   console.log(people[`${person.id}`]);
   if (people[`${person.id}`]) return true;
@@ -32,6 +29,7 @@ const isIDTaken = (person) => {
 };
 
 export default async function handler(req, res) {
+  await runMiddleware(req, res, cors);
   let isTaken = null;
   console.log(req.body, 1);
   if (req.method === "POST") {
