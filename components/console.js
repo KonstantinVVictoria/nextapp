@@ -9,7 +9,6 @@ let peer = new Peer(uniqueID, {
   secure: true,
   host: "peerjsserver.vercel.app",
   port: 9000,
-  path: "/myapp",
 });
 
 let setCallingStatusG = null;
