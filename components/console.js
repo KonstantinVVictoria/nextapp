@@ -8,8 +8,7 @@ let uniqueID = Math.floor(
 let peer = new Peer({
   secure: true,
   host: "peernexjs.herokuapp.com",
-  port: 9000,
-  path: "/myapp",
+  port: 443,
 });
 uniqueID = peer.id;
 let setCallingStatusG = null;
