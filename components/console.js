@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import styles from "./Components.module.scss";
 import Input from "./input";
 import Peer from "peerjs";
-let uniqueID = Math.floor(
-  Math.random(Date.UTC()) * Math.floor(Math.pow(10, 12))
-);
 let peer = new Peer({
   secure: true,
   host: "peernexjs.herokuapp.com",
@@ -23,6 +20,7 @@ const initSignal = () => {
     console.log(err);
   });
 };
+
 initSignal();
 const recieve = () => {
   var getUserMedia =
@@ -202,15 +200,7 @@ let connected = (name) => {
       >
         {name}
       </h1>
-      <h1 style={{ fontSize: "2em", color: "white" }}>Say hi!</h1>
-      <Input
-        height="7%"
-        width="70%"
-        userId={peer.id}
-        mouseDownEvent={({ target }) => {
-          //calling(target.parentElement.children[1].value);
-        }}
-      />
+      <h1 style={{ fontSize: "4em", color: "white" }}>Say hi!</h1>
     </>
   );
 };

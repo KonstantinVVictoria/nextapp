@@ -6,6 +6,16 @@ const cors = Cors({
   methods: ["GET", "POST"],
 });
 
+const MongoClient = require("mongodb").MongoClient;
+const uri =
+  "mongodb+srv://konstantin:<password>@cluster0.3m9q1.mongodb.net/<dbname>?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect((err) => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
 // Helper method to wait for a middleware to execute before continuing
 // And to throw an error when an error happens in a middleware
 function runMiddleware(req, res, fn) {
