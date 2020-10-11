@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 
 export default function LoadCS(component) {
-  return dynamic(() => import(`./${component}.jsx`), {
+  return dynamic(() => import(`./${component}.js`), {
     ssr: false,
   });
 }

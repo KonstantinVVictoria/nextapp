@@ -1,6 +1,6 @@
 import styles from "../styles/Home.module.css";
-import LoadCS from "./LoadCS";
-import SFX from "./sfx";
+import LoadCS from "../components/LoadCS";
+import SFX from "../components/sfx";
 export default function Home() {
   let Console = LoadCS("console");
   return (
