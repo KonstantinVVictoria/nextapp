@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import styles from "./Components.module.scss";
 import Input from "./input";
 import Peer from "peerjs";
-let uniqueID = Math.floor(
-  Math.random(Date.UTC()) * Math.floor(Math.pow(10, 12))
-);
+//let uniqueID = Math.floor(Math.random(Date.UTC()) * Math.floor(Math.pow(10, 12)));
 let peer = new Peer();
-
+let uniqueID = peer.id;
 let setCallingStatusG = null;
 let setCalleeG = null;
 const initSignal = () => {
