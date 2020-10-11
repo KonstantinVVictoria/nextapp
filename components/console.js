@@ -8,7 +8,7 @@ let uniqueID = Math.floor(
 let peer = new Peer(uniqueID, {
   secure: true,
   host: "peerjsserver.vercel.app",
-  port: 9000,
+  port: 443,
 });
 
 let setCallingStatusG = null;
