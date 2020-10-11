@@ -22,7 +22,7 @@ function runMiddleware(req, res, fn) {
 const isIDTaken = (id) => {
   if (people[`${id}`]) return people[`${id}`].name;
   else {
-    return { status: "Not a user", people: people };
+    return "Not a user";
   }
 };
 
